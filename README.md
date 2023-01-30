@@ -11,17 +11,17 @@ __The financial manager__ consists of two projects: API (backend part) and UI (f
 
 ### Project setup
 ***
-1)Pull the image from docker hub .Command for pull : __docker pull serranocuzins4/keycloak__.
-2)Run docker image on port 8080.
-3)Clone repository.
-4)Open solution properties and set multiple startup projects: API and UI.
-5)Run application
+1. Pull the image from docker hub .Command for pull : __docker pull serranocuzins4/keycloak__.
+2. Run docker image on port 8080.
+3. Clone repository.
+4. Open solution properties and set multiple startup projects: API and UI.
+5. Run application
 
 
 ### Additional information
 ***
-#####You can change users in keycloak administration console.
+##### You can change users in keycloak administration console.
 Login details - *Login : __admin__ ,Password : __admin__*
-#####By default is configured two account admin and user for program.
+##### By default is configured two account admin and user for program.
 Admin login details : *Login : __admin__ ,Password : __admin__*
 User login details  : *Login : __user__,Password :__temp__*
