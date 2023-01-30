@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>UI</PageTitle>
+
+<NavMenu />
+
+<main>
+    <article>
+        <ErrorBoundary>
+            <ChildContent>
+                @Body
+            </ChildContent>
+        </ErrorBoundary>
+    </article>
+</main>
+<footer class=" mt-auto text-center bg-secondary">
+    <span class="text-white">About</span>
+</footer>
+
+

@@ -1,0 +1,36 @@
+﻿@page "/operation/edit/{id:int}"
+
+
+<h1 class="text-center text-muted">Edit financial operation</h1>
+<EditForm Model="_financialOperationUpdateModel" class="text-center" OnValidSubmit="HandleValidationRequestedAsync">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <ValidationSummary></ValidationSummary>
+
+    <div class="mb-3 mt-3">
+        <label for="@_financialOperationUpdateModel.Date" class="form-label">Date</label>
+        <InputDate @bind-Value="@_financialOperationUpdateModel.Date"></InputDate>
+    </div>
+    <div class="mb-3">
+        <label for="@_financialOperationUpdateModel.Amount" class="form-label">Amount</label>
+        <InputNumber @bind-Value="_financialOperationUpdateModel.Amount" placeholder="Input amount" class="form-control"></InputNumber>
+    </div>
+    <div class="mb-3">
+        <label for="@_financialOperationUpdateModel.CategoryId" class="form-label">Category id</label>
+        @if (CategorySelectModel!.Categories != null)
+        {
+            <InputSelect @bind-Value="_financialOperationUpdateModel.CategoryId" class="form-select">
+                @foreach (var enumValue in  CategorySelectModel!.Categories!)
+                {
+                    <option value="@enumValue.Id">@enumValue.Name</option>
+                }
+            </InputSelect>
+        }
+    </div>
+    <button type="submit" class="btn btn-success">Send</button>
+</EditForm>
+@if (ErrorMessage.Length > 0)
+{
+        <div class="alert alert-danger" role="alert">
+        @ErrorMessage
+        </div>
+}

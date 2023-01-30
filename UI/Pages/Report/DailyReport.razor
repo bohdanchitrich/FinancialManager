@@ -1,0 +1,72 @@
+﻿
+
+@if (DailyReportViewModel == null)
+{
+    
+    <div class="d-flex align-items-center justify-content-center" style="height: 300px;">
+        <span class="border rounded border-secondary ">
+            <EditForm Model="DailyReportGetModel" OnValidSubmit="HandleValidationRequestedAsync" class="m-1">
+                <label for="@DailyReportGetModel.DateTime" class=" col-form-label">Date</label>
+                <InputDate @bind-Value="DailyReportGetModel.DateTime"></InputDate>
+                <button type="submit" class="btn btn-success m-1">Send</button>
+            </EditForm>
+        </span>
+    </div>
+}
+else
+{
+    <div class="container-fluid container-md">
+        
+        <div class="text-center">
+            <span class="h2 text-black">Info</span>
+            <table class="table table-bordered table-warning">
+                <thead>
+                <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total income</th>
+                    <th scope="col">Total outcome</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">@DailyReportViewModel.DateOnly</th>
+                    <td>@DailyReportViewModel.TotalIncome</td>
+                    <td>@DailyReportViewModel.TotalOutcome</td>
+                </tr>
+                </tbody>
+            </table>
+            <span class="h2 text-info">Operations</span>
+
+        </div>
+        <table class="table table-secondary table-bordered">
+            <caption>Operations on @DailyReportViewModel.DateOnly</caption>
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Category</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var category in DailyReportViewModel.Operations)
+            {
+                <tr>
+                    <th scope="row">@category.Id</th>
+                    <td>@category.Date</td>
+                    <td>@category.Amount</td>
+                    <td>@category.Category!.Name</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+   
+}
+@if (_errorMessage.Length > 0)
+{
+    <div class="alert alert-danger" role="alert">
+        @_errorMessage
+    </div>
+}

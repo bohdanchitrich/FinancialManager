@@ -1,0 +1,41 @@
+﻿@page "/reports"
+@using UI.Models.Shared
+<AuthorizeView >
+    <Authorized Context="Auth" >
+        @if (ChooseReportModel.ReportType == ReportType.None)
+        {
+            <div class="d-flex align-items-center justify-content-center" style="height: 300px;">
+                <span class="border rounded border-secondary ">
+                    <span class="h1 m-5">Choose type of report</span>
+                    <EditForm Model="ChooseReportModel" class="text-center m-3">
+                        <InputSelect @bind-Value="ChooseReportModel.ReportType" class="form-select">
+                            @foreach (var enumValue in Enum.GetValues(typeof(ReportType)))
+                            {
+                                <option value="@enumValue">@enumValue</option>
+                            }
+                        </InputSelect>
+                    </EditForm>
+                </span>
+            </div>
+        }else if (ChooseReportModel.ReportType == ReportType.Daily)
+        {
+            <DailyReport></DailyReport>
+            <div class="text-center">
+                <button class="btn btn-warning" @onclick="() => ChooseReportModel.ReportType = ReportType.None">Back to report menu</button>
+            </div>
+        }else if (ChooseReportModel.ReportType == ReportType.Date)
+        {
+            <DateReport></DateReport>
+            <div class="text-center">
+                <button class="btn btn-warning" @onclick="() => ChooseReportModel.ReportType = ReportType.None">Back to report menu</button>
+            </div>
+        }
+    </Authorized>
+    <NotAuthorized>
+        <div class="alert alert-danger" role="alert">
+            Please authorize
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+

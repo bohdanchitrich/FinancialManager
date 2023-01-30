@@ -1,0 +1,85 @@
+﻿@page "/category"
+
+<AuthorizeView>
+    <Authorized>
+        @if (CategoryViewModel == null)
+        {
+            if (_errorMessage.Length > 0)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @_errorMessage
+                </div>
+            }
+            else
+            {
+            <h1 class="text-center text-warning">Loading...</h1>
+            }
+        }
+        else
+        {
+            <div class="container-fluid container-md">
+
+                <table class="table table-secondary table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Regular</th>
+                            <th scope="col">FinancialType</th>
+                            <th scope="col" colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var category in CategoryViewModel!.Categories!)
+                        {
+                            <tr>
+                                <th scope="row">@category.Id</th>
+                                <td>@category.Name</td>
+                                <td>@category.Description</td>
+                                <td>@category.IsRegular</td>
+                                <td>@category.FinancialType</td>
+                                <td colspan="2" class="text-center">
+                                    <button class="btn btn-warning" @onclick='() => NavigationManager!.NavigateTo( $"/category/edit/{category.Id}")'>Edit</button>
+                                    <button class="btn btn-danger" @onclick="() => DeleteAsync(category.Id)">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="text-center m-2">
+                    @if (_paginationModel.PreviousPageAvailable)
+                    {
+                        <button class="btn btn-danger " @onclick="() => _paginationModel.PreviouslyPageAsync(ShowModelsAsync)">Previous</button>
+                    }
+                    <button class="btn btn-primary m-1">@_paginationModel.CurrentPage</button>
+                    @if (_paginationModel.NextPageAvailable)
+                    {
+                        <button class="btn btn-success" @onclick="() => _paginationModel.NextPageAsync(ShowModelsAsync)">Next</button>
+                    }
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-success " @onclick='() => NavigationManager!.NavigateTo( "/category/add")'>Add new category</button>
+                </div>
+                @if (_errorMessage.Length > 0)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @_errorMessage
+                    </div>
+                }
+            </div>
+        }
+    </Authorized>
+    <NotAuthorized>
+        <div class="alert alert-danger" role="alert">
+            Please authorize
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
+
+
+
