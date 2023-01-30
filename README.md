@@ -1,10 +1,8 @@
 <h1 align="center">Financial manager</h1>
-
 ***
-<div style="text-align:center;">
-<image src="img/logo.png" width = "400" ></image> 
-</div>
-
+### About 
+A financial manager is software that allows users to manage their financial assets. 
+Provides CRUD control of financial transactions and reporting system by date.
 ### Description
 ***
 __The financial manager__ consists of two projects: API (backend part) and UI (frontend part). __The API__ is written in C# using the _REST API_ and _DDD_ architectures. __The UI__ is the Blazor server app. Both projects use JWT authorization using _Keycloak_.
