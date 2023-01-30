@@ -3,7 +3,7 @@
 ### About 
 ***
 
-A financial manager is software that allows users to manage their financial assets. 
+A financial manager is pet project that allows users to manage their financial assets. 
 Provides CRUD control of financial transactions and reporting system by date.
 ### Description
 ***
