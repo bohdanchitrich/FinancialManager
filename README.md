@@ -5,11 +5,11 @@
 <image src="img/logo.png" width = "400" ></image> 
 </div>
 
-###Description
+### Description
 ***
 __The financial manager__ consists of two projects: API (backend part) and UI (frontend part). __The API__ is written in C# using the _REST API_ and _DDD_ architectures. __The UI__ is the Blazor server app. Both projects use JWT authorization using _Keycloak_.
 
-###Project setup
+### Project setup
 ***
 1)Pull the image from docker hub .Command for pull : __docker pull serranocuzins4/keycloak__.
 2)Run docker image on port 8080.
