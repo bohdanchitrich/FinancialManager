@@ -1,4 +1,5 @@
 <h1 align="center">Financial manager</h1>
+
 ***
 ### About 
 A financial manager is software that allows users to manage their financial assets. 
