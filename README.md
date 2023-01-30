@@ -15,7 +15,7 @@ __The financial manager__ consists of two projects: API (backend part) and UI (f
 
 1. Pull the image from docker hub .Command for pull : __docker pull serranocuzins4/keycloak__.
 2. Run docker image on port 8080.
-3. Clone repository.Command for clone: __git clone https://github.com/bohdanchitrich/FinancialManager.git __
+3. Clone repository.Command for clone: __git clone https://github.com/bohdanchitrich/FinancialManager.git__
 4. Open solution properties and set multiple startup projects: API and UI.
 5. Run application
 
