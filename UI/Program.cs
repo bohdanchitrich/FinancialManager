@@ -23,7 +23,7 @@ builder.Services.AddHttpContextAccessor();
 // Add services to the container.
 builder.Services.AddHttpClient("ApiClient", option =>
 {
-    option.BaseAddress = new Uri(builder.Configuration["BaseAddress"]);
+    option.BaseAddress = new Uri(builder.Configuration["ApiBaseAddress"]);
 });
 
 builder.Services.AddScoped<IFinancialManagerHttpClient, FinancialManagerHttpClient>();
