@@ -1,0 +1,24 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build project script
+      run: .\build-script.ps1
+
+    # - name: Deploy to Server
+    #   run: .\deploy-script.ps1
+    #   env:
+    #     SERVER_IP: ${{ secrets.SERVER_IP }}
+    #     USERNAME: ${{ secrets.USERNAME }}
+    #     SSH_KEY: ${{ secrets.SSH_KEY }}
